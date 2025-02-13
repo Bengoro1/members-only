@@ -8,6 +8,15 @@
 <body>
   <h1>Welcome <%= user.username %></h1>
   <a href="/messages/new">New</a>
+  <% if (locals.messages) { %>
+    <% console.log(user) %>
+    <div id="messages-container">
+      <% messages.forEach(message => { %>
+        <%- include('partials/message', {message: message, user: user}) %>
+      <% }); %>
+    </div>
+  <% } %>
+  <a href="/user/member-form">Want to be a member? Click here and enter a secret passcode to become one.</a>
   <a href="/auth/logout">Log out</a>
 </body>
 </html>

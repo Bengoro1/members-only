@@ -1,0 +1,7 @@
+<div class="message">
+  <h2><%= message.title %></h2>
+  <p><%= message.message %></p>
+  <% if (user.membership_status == 'member') { %>
+    <p><%= message.username %> <%= message.added %></p>
+  <% } %>
+</div>
