@@ -9,6 +9,7 @@ const isAuthenticated = require('./middlewares/authMiddleware');
 const authRoutes = require('./routes/authRoutes');
 const messagesRoutes = require('./routes/messagesRoutes');
 const showMessageQuery = require('./db/messagesQueries');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(passport.session());
 
 app.use('/auth', authRoutes);
 app.use('/messages', isAuthenticated, messagesRoutes);
+app.use('/user', isAuthenticated, userRoutes);
 app.get('/', isAuthenticated, async (req, res) => {
   const messages = await showMessageQuery.showAllMessages();
   res.render('home', {user: req.user, messages: messages});

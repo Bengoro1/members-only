@@ -9,6 +9,11 @@
   <form action="/user/member-form" method="post">
     <label for="passcode">What is the name of Natsu's blue cat?</label>
     <input type="text" name="passcode" id="passcode">
+    <button type="submit">Submit</button>
   </form>
+  <% if (locals.allert) { %>
+    <p style="color: red;"><%= allert %></p>
+  <% } %>
+  <a href="/">Giving up? Go back to home page</a>
 </body>
 </html>
