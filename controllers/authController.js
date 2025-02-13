@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const authDb = require('../db/authQueries');
+const db = require('../db/authQueries');
 
 const logout = (req, res, next) => {
   req.logout((err) => {
@@ -17,11 +17,10 @@ const signup = (req, res) => {
 }
 
 const registerUser = async (req, res, next) => {
-  console.log(req.body);
   try {
     const {first_name, last_name, email, username, password, membership_status} = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    await authDb.createUser(first_name, last_name, email, username, hashedPassword, membership_status);
+    await db.createUser(first_name, last_name, email, username, hashedPassword, membership_status);
     res.redirect('/');
   } catch (err) {
     next(err);

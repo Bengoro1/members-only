@@ -7,6 +7,7 @@ require('./config/passportConfig');
 const isAuthenticated = require('./middlewares/authMiddleware');
 
 const authRoutes = require('./routes/authRoutes');
+const messagesRoutes = require('./routes/messagesRoutes');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(session({
 app.use(passport.session());
 
 app.use('/auth', authRoutes);
+app.use('/messages', isAuthenticated, messagesRoutes);
 app.get('/', isAuthenticated, (req, res) => {
   res.render('home', {user: req.user});
 });
