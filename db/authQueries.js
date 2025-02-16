@@ -9,6 +9,12 @@ const createUser = async (firstName, lastName, email, username, hashedPassword, 
   );
 }
 
+const findByUsername = async (username) => {
+  const {rows} = await pool.query(`SELECT * FROM users WHERE username = $1`, [username]);
+  return rows[0] || null;
+}
+
 module.exports = {
-  createUser
+  createUser,
+  findByUsername
 }

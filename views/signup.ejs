@@ -6,6 +6,7 @@
   <title>Document</title>
 </head>
 <body>
+  <%- include('partials/errors') %>
   <form action="/auth/sign-up" method="post">
     <label for="first_name">First name</label>
     <input type="text" name="first_name" id="first_name">
@@ -18,8 +19,9 @@
     <label for="password">Password</label>
     <input type="password" name="password" id="password">
     <label for="passwordConfirmation">Password confirmation</label>
-    <input type="passwordConfirmation" name="passwordConfirmation" id="passwordConfirmation">
-    <button>Log in</button>
+    <input type="password" name="passwordConfirmation" id="passwordConfirmation">
+    <button>Sign up</button>
   </form>
+  <a href="/auth/log-in">Already have an account? Log in here!</a>
 </body>
 </html>
