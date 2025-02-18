@@ -31,7 +31,7 @@ app.use('/messages', isAuthenticated, messagesRoutes);
 app.use('/user', isAuthenticated, userRoutes);
 app.get('/', isAuthenticated, async (req, res) => {
   const messages = await showMessageQuery.showAllMessages();
-  res.render('home', {user: req.user, messages: messages});
+  res.render('home', {user: req.user, messages: messages, title: `Welcome ${req.user.username}!`});
 });
 
 const PORT = process.env.PORT || 8080;

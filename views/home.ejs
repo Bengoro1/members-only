@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title><%= title %></title>
 </head>
 <body>
-  <h1>Welcome <%= user.username %>!</h1>
+  <%- include('partials/header', {title: title}) %>
   <a href="/messages/new">New</a>
   <% if (locals.messages) { %>
     <div id="messages-container">
@@ -21,5 +21,6 @@
     <p>You're a member!</p>
   <% } %>
   <a href="/auth/logout">Log out</a>
+  <%- include('partials/footer') %>
 </body>
 </html>

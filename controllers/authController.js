@@ -48,11 +48,11 @@ const logout = (req, res, next) => {
 };
 
 const login = (req, res) => {
-  res.render('login');
+  res.render('login', {title: 'Log in'});
 }
 
 const signup = (req, res) => {
-  res.render('signup');
+  res.render('signup', {title: 'Sign up'});
 }
 
 const registerUser = [
@@ -62,6 +62,7 @@ const registerUser = [
     if (!errors.isEmpty()) {
       return res.status(400).render('signup', {
         errors: errors.array(),
+        title: 'Sign up',
       });
     }
     try {

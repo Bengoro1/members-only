@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title><%= title %></title>
 </head>
 <body>
+  <%- include('partials/header', {title: title}) %>
   <%- include('partials/errors') %>
   <form action="/user/member-form" method="post">
     <label for="passcode">What is the name of Natsu's blue cat?</label>
@@ -13,5 +14,6 @@
     <button type="submit">Submit</button>
   </form>
   <a href="/">Giving up? Go back to home page</a>
+  <%- include('partials/footer') %>
 </body>
 </html>

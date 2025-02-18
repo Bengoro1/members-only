@@ -13,7 +13,7 @@ const validatePasscode = [
 ];
 
 const getMemberForm = (req, res) => {
-  res.render('member-form');
+  res.render('member-form', {title: 'Become member'});
 }
 
 const memberPasscode = [
@@ -22,6 +22,7 @@ const memberPasscode = [
     if (!errors.isEmpty()) {
       return res.status(400).render('member-form', {
         errors: errors.array(),
+        title: 'Become member',
       });
     }
     try {

@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title><%= title %></title>
 </head>
 <body>
+  <%- include('partials/header', {title: title}) %>
   <%- include('partials/errors') %>
   <form action="/auth/sign-up" method="post">
     <label for="first_name">First name</label>
@@ -23,5 +24,6 @@
     <button>Sign up</button>
   </form>
   <a href="/auth/log-in">Already have an account? Log in here!</a>
+  <%- include('partials/footer') %>
 </body>
 </html>
