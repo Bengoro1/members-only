@@ -15,7 +15,6 @@
       <% }); %>
     </div>
   <% } %>
-  <% console.log(user.membership_status); %>
   <% if (user.membership_status != 'member') { %>
     <a href="/user/member-form">Want to be a member? Click here and enter a secret passcode to become one.</a>
   <% } else { %>
