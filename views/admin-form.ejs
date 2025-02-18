@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/header', {title: title}) %>
+  <%- include('partials/errors') %>
+  <form action="/user/admin-form" method="post">
+    <label for="passcode">What is the secret admin passcode?</label>
+    <input type="text" name="passcode" id="passcode">
+    <button type="submit">Submit</button>
+  </form>
+  <a href="/">Giving up? Go back to home page</a>
+  <%- include('partials/footer') %>
+</body>
+</html>

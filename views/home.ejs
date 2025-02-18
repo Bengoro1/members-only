@@ -16,6 +16,11 @@
   <% } else { %>
     <p>You're a member!</p>
   <% } %>
+  <% if (user.admin != 'true') { %>
+    <a href="/user/admin-form">Want to be an admin? Click here and enter a secret passcode to become one.</a>
+  <% } else { %>
+    <p>You're an admin!</p>
+  <% } %>
   <a href="/auth/logout">Log out</a>
   <%- include('partials/footer') %>
 </body>

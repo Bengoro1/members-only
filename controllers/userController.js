@@ -2,10 +2,20 @@ require('dotenv').config();
 const db = require('../db/userQueries');
 const {body, validationResult} = require('express-validator');
 
-const validatePasscode = [
+const validateMemberPasscode = [
   body('passcode')
     .custom(value => {
       if (value.toLowerCase() != process.env.MEMBERSHIP_PASSWORD.toLowerCase()) {
+        throw new Error('Wrong passcode, try again!');
+      }
+      return true;
+    })
+];
+
+const validateAdminPasscode = [
+  body('passcode')
+    .custom(value => {
+      if (value.toLowerCase() != process.env.ADMIN_PASSWORD.toLowerCase()) {
         throw new Error('Wrong passcode, try again!');
       }
       return true;
@@ -17,7 +27,7 @@ const getMemberForm = (req, res) => {
 }
 
 const memberPasscode = [
-  validatePasscode, async (req, res, next) => {
+  validateMemberPasscode, async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).render('member-form', {
@@ -34,7 +44,31 @@ const memberPasscode = [
   }
 ];
 
+const getAdminForm = (req, res) => {
+  res.render('admin-form', {title: 'Become admin'});
+}
+
+const adminPasscode = [
+  validateAdminPasscode, async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).render('admin-form', {
+        errors: errors.array(),
+        title: 'Become admin',
+      })
+    }
+    try {
+      await db.grantAdmin(req.user.id);
+      res.redirect('/')
+    } catch (err) {
+      next(err);
+    }
+  }
+]
+
 module.exports = {
   getMemberForm,
-  memberPasscode
+  memberPasscode,
+  getAdminForm,
+  adminPasscode
 }
