@@ -5,5 +5,6 @@ const router = Router();
 
 router.get('/new', controller.newMessageForm);
 router.post('/new', controller.newMessagePost);
+router.post('/:messageId/delete', controller.messageDelete);
 
 module.exports = router;

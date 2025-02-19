@@ -4,4 +4,9 @@
   <% if (user.membership_status == 'member') { %>
     <p><%= message.username %> <%= message.added %></p>
   <% } %>
+  <% if (user.admin == 'true') { %>
+    <form action="/messages/<%= message.id %>/delete" method="post">
+      <button type="submit">Delete</button>
+    </form>
+  <% } %>
 </div>

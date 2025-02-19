@@ -14,7 +14,19 @@ const newMessagePost = async (req, res, next) => {
   }
 }
 
+const messageDelete = async (req, res, next) => {
+  try {
+    if (req.user.admin == 'true') {
+      await db.deleteMessage(req.params.messageId);
+    }
+    res.redirect('/');
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   newMessageForm,
-  newMessagePost
+  newMessagePost,
+  messageDelete
 }

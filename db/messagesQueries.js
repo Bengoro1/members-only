@@ -6,14 +6,20 @@ const postNewMessage = async (title, message, userId) => {
 
 const showAllMessages = async () => {
   const {rows} = await pool.query(`
-    SELECT title, added, message, users.username 
+    SELECT title, added, message, users.username, messages.id 
     FROM messages
-    LEFT JOIN users ON messages.user_id = users.id;`
+    LEFT JOIN users ON messages.user_id = users.id
+    ORDER BY added DESC;`
   );
   return rows;
 }
 
+const deleteMessage = async (messageId) => {
+  await pool.query(`DELETE FROM messages WHERE id = $1;`, [messageId]);
+}
+
 module.exports = {
   postNewMessage,
-  showAllMessages
+  showAllMessages,
+  deleteMessage
 }
