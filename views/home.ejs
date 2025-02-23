@@ -2,26 +2,32 @@
 <html lang="en">
 <%- include('partials/head') %>
 <body>
-  <%- include('partials/header', {title: title}) %>
-  <a href="/messages/new">New</a>
-  <% if (locals.messages) { %>
-    <div id="messages-container">
-      <% messages.forEach(message => { %>
-        <%- include('partials/message', {message: message, user: user}) %>
-      <% }); %>
+  <div class="container">
+    <%- include('partials/header', {title: title}) %>
+    <div class="content">
+      <a href="/messages/new">New message</a>
+      <% if (locals.messages) { %>
+        <div id="messages-container">
+          <% messages.forEach(message => { %>
+            <%- include('partials/message', {message: message, user: user}) %>
+          <% }); %>
+        </div>
+      <% } %>
+      <div class="links">
+        <% if (user.membership_status != 'member') { %>
+          <a href="/user/member-form">Want to be a member? Click here and enter a secret passcode to become one.</a>
+        <% } else { %>
+          <p>You're a member!</p>
+        <% } %>
+        <% if (user.admin != 'true') { %>
+          <a href="/user/admin-form">Want to be an admin? Click here and enter a secret passcode to become one.</a>
+        <% } else { %>
+          <p>You're an admin!</p>
+        <% } %>
+        <a href="/auth/logout">Log out</a>
+      </div>
     </div>
-  <% } %>
-  <% if (user.membership_status != 'member') { %>
-    <a href="/user/member-form">Want to be a member? Click here and enter a secret passcode to become one.</a>
-  <% } else { %>
-    <p>You're a member!</p>
-  <% } %>
-  <% if (user.admin != 'true') { %>
-    <a href="/user/admin-form">Want to be an admin? Click here and enter a secret passcode to become one.</a>
-  <% } else { %>
-    <p>You're an admin!</p>
-  <% } %>
-  <a href="/auth/logout">Log out</a>
-  <%- include('partials/footer') %>
+    <%- include('partials/footer') %>
+  </div>
 </body>
 </html>

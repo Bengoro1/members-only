@@ -48,11 +48,11 @@ const logout = (req, res, next) => {
 };
 
 const login = (req, res) => {
-  res.render('login', {title: 'Log in'});
+  res.render('login', {title: 'Log in', stylesheet: 'login'});
 }
 
 const signup = (req, res) => {
-  res.render('signup', {title: 'Sign up'});
+  res.render('signup', {title: 'Sign up', stylesheet: 'signup'});
 }
 
 const registerUser = [
@@ -63,6 +63,7 @@ const registerUser = [
       return res.status(400).render('signup', {
         errors: errors.array(),
         title: 'Sign up',
+        stylesheet: 'signup',
       });
     }
     try {

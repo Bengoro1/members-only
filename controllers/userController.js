@@ -52,10 +52,10 @@ const adminPasscode = [
   validateAdminPasscode, async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).render('admin-form', {
+      return res.status(400).render('admin-form', {
         errors: errors.array(),
         title: 'Become admin',
-      })
+      });
     }
     try {
       await db.grantAdmin(req.user.id);

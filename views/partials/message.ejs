@@ -2,7 +2,7 @@
   <h2><%= message.title %></h2>
   <p><%= message.message %></p>
   <% if (user.membership_status == 'member') { %>
-    <p><%= message.username %> <%= message.added %></p>
+    <p><%= message.username %> <%= message.formattedDate %></p>
   <% } %>
   <% if (user.admin == 'true') { %>
     <form action="/messages/<%= message.id %>/delete" method="post">

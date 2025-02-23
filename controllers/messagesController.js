@@ -1,7 +1,7 @@
 const db = require('../db/messagesQueries');
 
 const newMessageForm = (req, res) => {
-  res.render('new', {title: 'New message'});
+  res.render('new', {title: 'New message', stylesheet: 'new'});
 }
 
 const newMessagePost = async (req, res, next) => {

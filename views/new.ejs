@@ -2,15 +2,20 @@
 <html lang="en">
 <%- include('partials/head') %>
 <body>
-  <%- include('partials/header', {title: title}) %>
-  <form action="/messages/new" method="post">
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title">
-    <label for="message">Message</label>
-    <input type="text" name="message" id="message">
-    <button type="submit">Submit</button>
-  </form>
-  <a href="/">Cancel</a>
-  <%- include('partials/footer') %>
+  <div class="container">
+    <%- include('partials/header', {title: title}) %>
+    <div class="form-container">
+      <%- include('partials/errors') %>
+      <form action="/messages/new" method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title">
+        <label for="message">Message:</label>
+        <textarea name="message" id="message"></textarea>
+        <button type="submit">Post message</button>
+      </form>
+      <a href="/">Cancel</a>
+    </div>
+    <%- include('partials/footer') %>
+  </div>
 </body>
 </html>

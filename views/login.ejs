@@ -2,15 +2,21 @@
 <html lang="en">
 <%- include('partials/head') %>
 <body>
-  <%- include('partials/header', {title: title}) %>
-  <form action="/auth/log-in" method="post">
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" placeholder="username">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-    <button type="submit">Log in</button>
-  </form>
-  <a href="/auth/sign-up">Don't have an account yet? Sign up here</a>
-  <%- include('partials/footer') %>
+  <div class="container">
+    <%- include('partials/header', {title: title}) %>
+    <div class="form-container">
+      <form action="/auth/log-in" method="post">
+        <div>          
+          <input type="text" name="username" id="username" placeholder="Username">
+        </div>
+        <div>
+          <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <button type="submit">Log in</button>
+      </form>
+      <a href="/auth/sign-up">Don't have an account yet? Sign up here</a>
+    </div>
+    <%- include('partials/footer') %>
+  </div>
 </body>
 </html>

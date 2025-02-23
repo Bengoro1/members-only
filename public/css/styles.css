@@ -38,6 +38,63 @@ html, body {
   margin: 0;
 }
 
+.container {
+  display: grid;
+  grid-template-rows: 50px 1fr 50px;
+  height: 100%;
+  width: 100%;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+form input {
+  border-radius: 8px;
+  padding: 6px;
+  border: 1px solid white;
+}
+
+a {
+  color: rgb(138 138 255);
+  width: fit-content;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+button {
+  padding: 8px;
+  background-color: rgb(138 138 255);
+  color: white;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: white;
+  color: rgb(138 138 255);
+  border-color: rgb(138 138 255);
+}
+
+.errors {
+  height: 100px;
+}
+
 .footer {
   background-color: black;
   color: white;
@@ -62,3 +119,8 @@ html, body {
 .footer img:hover {
   transform: rotate(180deg);
 }
+
+/*
+To-do: 
+wrong login render login errors: errors.array(); check passport documentation
+validate new message title and message can't be empty.

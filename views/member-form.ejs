@@ -2,14 +2,18 @@
 <html lang="en">
 <%- include('partials/head') %>
 <body>
-  <%- include('partials/header', {title: title}) %>
-  <%- include('partials/errors') %>
-  <form action="/user/member-form" method="post">
-    <label for="passcode">What is the name of Natsu's blue cat?</label>
-    <input type="text" name="passcode" id="passcode">
-    <button type="submit">Submit</button>
-  </form>
-  <a href="/">Giving up? Go back to home page</a>
-  <%- include('partials/footer') %>
+  <div class="container">
+    <%- include('partials/header', {title: title}) %>
+    <div class="form-container">
+      <%- include('partials/errors') %>
+      <form action="/user/member-form" method="post">
+        <label for="passcode">What is the name of Natsu's blue cat?</label>
+        <input type="text" name="passcode" id="passcode">
+        <button type="submit">Submit</button>
+      </form>
+      <a href="/">Giving up? Go back to home page</a>
+    </div>
+    <%- include('partials/footer') %>
+  </div>
 </body>
 </html>

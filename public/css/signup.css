@@ -1,0 +1,12 @@
+form {
+  width: 250px;
+}
+
+form > div {
+  display: flex;
+  gap: 5px
+}
+
+div > input {
+  width: 50%;
+}

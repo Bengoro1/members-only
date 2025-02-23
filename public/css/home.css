@@ -1,0 +1,33 @@
+.content {
+  display: grid;
+  padding: 10px 50px;
+  grid-template-rows: 30px 1fr 135px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#messages-container > .message {
+  border-bottom: 1px solid white;
+}
+
+.message form {
+  width: fit-content;
+  height: fit-content;
+  grid-area: 1 / 2 / 2 /3;
+  margin-top: 20px;
+}
+
+.message {
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  padding-bottom: 10px;
+}
+
+.message p {
+  margin: 5px;
+  grid-column: 1 / 2;
+}
