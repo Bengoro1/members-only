@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const db = require('../db/authQueries');
 const {body, validationResult} = require('express-validator');
 
-const alphaErr = 'must contain only letters.'
+const alphaErr = 'must contain only letters.';
 
 const validateRegister = [
   body('first_name')
@@ -38,7 +38,7 @@ const validateRegister = [
       }
       return true;
     }),
-]
+];
 
 const logout = (req, res, next) => {
   req.logout((err) => {
