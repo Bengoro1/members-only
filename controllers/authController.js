@@ -47,8 +47,22 @@ const logout = (req, res, next) => {
   });
 };
 
-const login = (req, res) => {
-  res.render('login', {title: 'Log in', stylesheet: 'login'});
+const login = (req, res, next) => {
+  const errorMessage = {msg: req.session.messages?.[0]};
+  req.session.messages = [];
+  if (errorMessage.msg) {
+    return res.render('login', {
+      title: 'Log in',
+      errors: errorMessage ? [errorMessage] : []
+    });
+  }
+  try {
+    res.render('login', {
+      title: 'Log in',
+    });
+  } catch (err) {
+    next(err);
+  }
 }
 
 const signup = (req, res) => {

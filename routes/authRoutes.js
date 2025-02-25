@@ -7,7 +7,8 @@ const router = Router();
 router.get('/log-in', controller.login);
 router.post('/log-in', passport.authenticate('local', {
   successRedirect: '/',
-  failureRedirect: '/'
+  failureRedirect: '/auth/log-in',
+  failureMessage: true
 }));
 
 router.get('/logout', controller.logout);

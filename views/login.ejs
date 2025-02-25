@@ -5,6 +5,7 @@
   <div class="container">
     <%- include('partials/header', {title: title}) %>
     <div class="form-container">
+      <%- include('partials/errors') %>
       <form action="/auth/log-in" method="post">
         <div>          
           <input type="text" name="username" id="username" placeholder="Username">

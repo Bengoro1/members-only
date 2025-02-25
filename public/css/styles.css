@@ -93,6 +93,14 @@ button:hover {
 
 .errors {
   height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.errors > li {
+  list-style: square;
+  color: red;
 }
 
 .footer {
@@ -119,7 +127,3 @@ button:hover {
 .footer img:hover {
   transform: rotate(180deg);
 }
-
-/*
-To-do: 
-wrong login render login errors: errors.array(); check passport documentation
